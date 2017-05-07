@@ -3,9 +3,10 @@ import os
 import time
 import random
 
+
 # QQ空间模拟登录
-# driver = webdriver.Chrome()
-driver = webdriver.PhantomJS()
+driver = webdriver.Chrome()
+# driver = webdriver.PhantomJS()
 print('准备登陆QQ空间')
 driver.get('https://qzone.qq.com/')
 
@@ -24,6 +25,7 @@ time.sleep(3)
 # 签到
 print('准备签到')
 driver.find_element_by_id('checkin_button').click()
+time.sleep(3)
 driver.switch_to_frame('checkin_likeTipsFrame')
 # driver.find_element_by_xpath("//img[@src='http://qzonestyle.gtimg.cn/qzone/em/stamp/50002_l.jpg']").click() # 天气
 labels = driver.find_elements_by_class_name("li_mouseout")
@@ -31,12 +33,6 @@ label = random.choice(labels)
 print('签到标签:'+label.text)
 label.click()
 time.sleep(3)
-
-# driver.find_element_by_id('idEditorTextarea').click()
-# driver.find_element_by_id('$1_substitutor_content').click()
-# driver.find_element_by_id('$1_substitutor_content').send_keys('123')
-# if driver.find_element_by_id('$1_substitutor_content').is_displayed():
-# if driver.find_element_by_id('$1_content_content').is_displayed():
 
 try:
 	driver.find_element_by_id('idEditorTextarea').click()
@@ -56,4 +52,6 @@ except Exception as e:
 # driver.find_elements_by_class_name('ck-btn').click()
 
 # driver.refresh()
+time.sleep(3)
 driver.quit()
+

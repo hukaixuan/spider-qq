@@ -1,2 +1,5 @@
 venv/
+geckodriver.log
+ghostdriver.log
+screenshot.png
 
